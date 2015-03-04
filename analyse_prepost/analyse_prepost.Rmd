@@ -1,0 +1,28 @@
+---
+title: "Questionnaire avant-après"
+author: "Gwendoline MARTIN,  JcB"
+date: "03/03/2015"
+output: html_document
+---
+
+```{r init}
+
+library(stringr)
+
+path <- "../"
+file <- "data/questionnaire stage vs2.0-1.csv"
+d <- read.csv(paste0(path, file))
+
+# tidy
+d$Q6 <- factor(str_trim(d$Q6))
+```
+
+Test de Fisher sur les 9 questions:
+
+```{r}
+source("analyse.R")
+qs(d)
+
+```
+
+
